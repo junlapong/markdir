@@ -5,8 +5,8 @@ It's sort of the most degenerate Wiki you could imagine writing short of simply 
 
 ## Installation
 
-    go get -u github.com/weaming/markdir
+    go get -u github.com/junlapong/markdir
 
     Usage of markdir:
       -bind string
-          listen host:port (default "127.0.0.1:10200")
+          listen host:port (default "localhost:1404")

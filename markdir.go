@@ -12,7 +12,7 @@ import (
 	"github.com/russross/blackfriday"
 )
 
-var listen = flag.String("listen", "127.0.0.1:10200", "listen host:port")
+var listen = flag.String("listen", "localhost:1404", "listen host:port") // M(14), D(04)
 
 func main() {
 	flag.Parse()
@@ -69,8 +69,10 @@ func (r renderer) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 	} else if hasSuffix(req.URL.Path, codeExtensions) {
 		content, err := ioutil.ReadFile("." + req.URL.Path)
 		if err != nil {
-			http.Error(rw, "Internal Server Error", 500)
-			log.Fatalf("Couldn't read path %s: %v", req.URL.Path, err)
+			//http.Error(rw, "Internal Server Error", 500)
+			//log.Fatalf("Couldn't read path %s: %v", req.URL.Path, err)
+			http.Error(rw, "File not found", http.StatusNotFound)
+			log.Printf("Couldn't read path %s: %v", req.URL.Path, err)
 		}
 
 		rw.Header().Set("Content-Type", "text/plain")
