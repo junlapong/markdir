@@ -9,7 +9,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/russross/blackfriday"
+	"github.com/russross/blackfriday/v2"
 )
 
 var listen = flag.String("listen", "localhost:1404", "listen host:port") // M(14), D(04)
