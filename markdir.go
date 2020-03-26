@@ -9,7 +9,6 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/pkg/browser"
 	"github.com/russross/blackfriday/v2"
 )
 
@@ -22,7 +21,7 @@ func main() {
 	handler := renderer{httpdir, http.FileServer(httpdir)}
 
 	fmt.Printf("Serving on http://%s\n", *listen)
-	go browser.OpenURL("http://" + *listen)
+	go Open("http://" + *listen)
 
 	log.Fatal(http.ListenAndServe(*listen, handler))
 }
