@@ -19,7 +19,7 @@ func Commands() [][]string {
 	case "windows":
 		cmds = append(cmds, []string{"cmd", "/c", "start"})
 	case "android":
-		cmds = append(cmds, []string{"termux-open"})
+		cmds = append(cmds, []string{"/data/data/com.termux/files/usr/bin/termux-open"})
 	default:
 		if os.Getenv("DISPLAY") != "" {
 			// xdg-open is only for use in a desktop environment.
